@@ -1,0 +1,49 @@
+.navBar{
+    display:flex;
+    position:sticky;
+    top:0;
+    font-family:'Courier New', Courier, monospace;
+    border-bottom: 2px solid black;
+    border-radius: 8px;
+    background: white;
+}
+.navBar h1{
+    margin:7px;
+}
+.navBar ul{
+    margin: 10px;
+}
+.navBar ul li{
+    list-style:none;
+}
+.navBar li a{
+    text-decoration: none;
+    font-size:20px;
+    font-weight: bold;
+    color:black;
+}
+.navBar button{
+    margin: 7px;
+    border-radius: 8px;
+    padding:7px;
+    margin-left: auto;
+    transition: width 10s ease-in-out;
+    background:transparent;
+}
+#dropDown{
+    position: fixed;
+    width:100%;
+    display: flex;
+    display:none;
+    flex-direction: column;
+    align-items:flex-end;
+}
+#dropDown a{
+    padding:5px;
+    background: #333333;
+    color:white;
+    width:30%;
+    border:2px solid #e6e6e6;
+    border-radius:4px;
+    text-decoration: none;
+}

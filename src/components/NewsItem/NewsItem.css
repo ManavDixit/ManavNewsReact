@@ -1,0 +1,35 @@
+.newsItem {
+  margin: 10px;
+  width: 80%;
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 8px;
+}
+.newsItem span p {
+  width: 100%;
+  padding: 8px;
+  background-color: #333333;
+  color: white;
+  border-radius:10px;
+  margin-bottom: 10px;
+}
+.newsItem img {
+  width:100%;
+  margin-bottom:10px;
+  border-radius: 20px;
+}
+.info{
+  color:grey;
+  font-size: 15px;
+  margin:10px;
+}
+@media only screen and (min-width: 768px) {
+  .newsItem {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .newsItem {
+    width: 40%;
+  }
+}

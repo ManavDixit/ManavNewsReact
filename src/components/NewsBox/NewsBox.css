@@ -1,0 +1,19 @@
+#newsBox{
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+    flex-wrap: wrap;
+}
+#changePageBox{
+    display:flex;
+    margin-top:20px;
+    width: 100%;
+    justify-content: space-between;
+}
+#changePageBox .btn{
+    width:25%;
+    border-radius: 8px;
+    background: transparent;
+    padding: 15px;
+    margin:15px;
+}

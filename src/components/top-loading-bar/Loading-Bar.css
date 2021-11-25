@@ -1,0 +1,6 @@
+#loadingBar{
+    position: fixed;
+    top: 0;
+    height:5px;
+    background: #333333;
+}
