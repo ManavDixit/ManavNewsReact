@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './NewsItem.css'
-export default class NewsItem extends Component {
-    render() {
-        let {title,description,newsUrl,imgUrl,author,publishedTime}=this.props;
+const NewsItem=(props)=>{
+        let {title,description,newsUrl,imgUrl,author,publishedTime}=props;
         return (
             <div className='newsItem'>
                 <span className="title"><p>{title}</p></span>
@@ -12,5 +11,5 @@ export default class NewsItem extends Component {
                 <p className='info'>{`By ${author || 'Unknown'} on ${new Date(publishedTime).toGMTString()}`}</p>
             </div>
         )
-    }
 }
+export default NewsItem;

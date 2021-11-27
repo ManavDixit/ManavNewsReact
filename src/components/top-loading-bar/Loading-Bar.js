@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Loading-Bar.css'
-export default class LoadingBar extends Component {
-    render() {
+const LoadingBar=(props)=>{
         return (
-            <div style={{width:this.props.width}} id='loadingBar'>
-            </div>
+            <div style={{width:props.width}} id='loadingBar'></div>
         )
-    }
 }
+export default LoadingBar;

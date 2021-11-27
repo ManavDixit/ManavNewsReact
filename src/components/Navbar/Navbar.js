@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css'
-export default class Navbar extends Component {
-  showNewsCategory=()=>{
+const Navbar=()=>{
+  const showNewsCategory=()=>{
     let categoryDropDown=document.getElementById('dropDown')
     if(categoryDropDown.style.display!=='none' && categoryDropDown.style.display!==''){
       categoryDropDown.style.display='';
@@ -12,10 +12,9 @@ export default class Navbar extends Component {
     }
   }
   //onclick listener for categories link to hide categories on cliick
-  hideDropDown=()=>{
+  const hideDropDown=()=>{
     document.getElementById('dropDown').style.display='none';
   }
-  render() {
     return (
       <>
         <nav className='navBar'>
@@ -32,19 +31,19 @@ export default class Navbar extends Component {
               </li>
             </ul>
             {/*creating dropDown for for news category*/}
-            <button onClick={this.showNewsCategory} >News Category</button>
+            <button onClick={showNewsCategory} >News Category</button>
         </nav>
         <div id='dropDown'>
-        <Link onClick={this.hideDropDown} to='/general'>General</Link>
-        <Link onClick={this.hideDropDown} to='/entertainment'>Entertainment</Link>
-        <Link onClick={this.hideDropDown} to='/sports'>Sports</Link>
-        <Link onClick={this.hideDropDown} to='/science'>Science</Link>
-        <Link onClick={this.hideDropDown} to='/business'>Business</Link>
-        <Link onClick={this.hideDropDown} to='/health'>Health</Link>
-        <Link onClick={this.hideDropDown} to='/technology'>Technology</Link>
+        <Link onClick={hideDropDown} to='/General'>General</Link>
+        <Link onClick={hideDropDown} to='/sports'>Sports</Link>
+        <Link onClick={hideDropDown} to='/science'>Science</Link>
+        <Link onClick={hideDropDown} to='/business'>Business</Link>
+        <Link onClick={hideDropDown} to='/health'>Health</Link>
+        <Link onClick={hideDropDown} to='/entertainment'>Entertainment</Link>
+        <Link onClick={hideDropDown} to='/technology'>Technology</Link>
         
         </div>
       </>
     );
-  }
 }
+export default Navbar;

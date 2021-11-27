@@ -1,49 +1,41 @@
 import "./App.css";
-import React, { Component } from "react";
+import React, {useState} from "react";
 import Navbar from "./components/Navbar/Navbar";
 import NewsBox from "./components/NewsBox/NewsBox";
 import LoadingBar from './components/top-loading-bar/Loading-Bar'
 import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
-export default class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      loadingBarWidth:'0%'
-    }
-  }
-  //variable for apikey-->when using enviornmental variable in react the variable name must be capitalized and must start with REACT_APP_Variable_Name
-  apiKey=process.env.REACT_APP_NEWS_API_KEY;
-  //variable for number of article
-  noOfArticles=10;
+const App=()=>{
+  //initializing state for width of top loading bar
+  const [loadingBarWidth, setloadingBarWidth] = useState('0%');
+  //getting api key from .env file --> the name of enviornmental varialble must start with REACT_APP and must be in capital letter while using react ex:(REACT_APP_MY_VARIABLE)
+  const apiKey=process.env.REACT_APP_NEWS_API_KEY;
+  //creating variable for no of articles in a page
+  const noOfArticles=10;
   //function for setting width of loading bar
-  setLoadingBarWidth=(width)=>{
-    this.setState({
-      loadingBarWidth:width
-    })
+  const setLoadingBarWidth=(width)=>{
+    setloadingBarWidth(width);
     //ressting width to 0% after 1 sec if width is 100%
     if(width==='100%'){
+
       setTimeout(() => {
-        this.setState(
-          {
-            loadingBarWidth:'0%'
-          }
-        )
+        setloadingBarWidth('0%')
       }, 500);
+
     }
+
   }
-  render() {
     return (
       <div>
         <Router>
           <Navbar heading="ManavNews" />
-          <LoadingBar width={this.state.loadingBarWidth}/>
+          <LoadingBar width={loadingBarWidth}/>
           <Routes>
             <Route
               path="/"
               element={
-                <NewsBox apiKey={this.apiKey}  setLoadingBarWidth={this.setLoadingBarWidth} 
+                <NewsBox apiKey={apiKey}  setLoadingBarWidth={setLoadingBarWidth} 
                   key="general"
-                  noOfArticles={this.noOfArticles}
+                  noOfArticles={noOfArticles}
                   country="in"
                   category="general"
                 />
@@ -53,39 +45,39 @@ export default class App extends Component {
               key="general"
               path="/general"
               element={
-                <NewsBox apiKey={this.apiKey} setLoadingBarWidth={this.setLoadingBarWidth}  key='general' noOfArticles={this.noOfArticles} country="in" category="general" />
+                <NewsBox apiKey={apiKey} setLoadingBarWidth={setLoadingBarWidth}  key='general' noOfArticles={noOfArticles} country="in" category="general" />
               }
             />
             <Route
               path="/sports"
               element={
-                <NewsBox apiKey={this.apiKey}  setLoadingBarWidth={this.setLoadingBarWidth} 
+                <NewsBox apiKey={apiKey}  setLoadingBarWidth={setLoadingBarWidth} 
                   key="sports"
-                  noOfArticles={this.noOfArticles}
+                  noOfArticles={noOfArticles}
                   country="in"
                   category="sports"
                 />
               }
             />
             <Route path='/science' element={
-              <NewsBox apiKey={this.apiKey}  setLoadingBarWidth={this.setLoadingBarWidth}  key='science' noOfArticles={this.noOfArticles} country="in" category="science" />
+              <NewsBox apiKey={apiKey}  setLoadingBarWidth={setLoadingBarWidth}  key='science' noOfArticles={noOfArticles} country="in" category="science" />
             } />
             <Route path='/business' element={
-              <NewsBox apiKey={this.apiKey}  setLoadingBarWidth={this.setLoadingBarWidth}  key='business' noOfArticles={this.noOfArticles} country="in" category="business" />
+              <NewsBox apiKey={apiKey}  setLoadingBarWidth={setLoadingBarWidth}  key='business' noOfArticles={noOfArticles} country="in" category="business" />
             } />
             <Route path='/health' element={
-              <NewsBox apiKey={this.apiKey}  setLoadingBarWidth={this.setLoadingBarWidth}  key='health' noOfArticles={this.noOfArticles} country="in" category="health" />
+              <NewsBox apiKey={apiKey}  setLoadingBarWidth={setLoadingBarWidth}  key='health' noOfArticles={noOfArticles} country="in" category="health" />
             } />
             <Route path='/technology' element={
-              <NewsBox apiKey={this.apiKey} setLoadingBarWidth={this.setLoadingBarWidth}  key='technology' noOfArticles={this.noOfArticles} country="in" category="technology" />
+              <NewsBox apiKey={apiKey} setLoadingBarWidth={setLoadingBarWidth}  key='technology' noOfArticles={noOfArticles} country="in" category="technology" />
             } />
             <Route path='/entertainment' element={
-              <NewsBox apiKey={this.apiKey}  setLoadingBarWidth={this.setLoadingBarWidth}  key='entertainment' noOfArticles={this.noOfArticles} country="in" category="entertainment" />
+              <NewsBox apiKey={apiKey}  setLoadingBarWidth={setLoadingBarWidth}  key='entertainment' noOfArticles={noOfArticles} country="in" category="entertainment" />
             } />
 
           </Routes>
         </Router>
       </div>
     );
-  }
 }
+export default App;
